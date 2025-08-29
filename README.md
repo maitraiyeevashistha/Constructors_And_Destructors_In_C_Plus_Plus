@@ -105,11 +105,149 @@ This pairing ensures that resources are not leaked and that an object’s lifeti
 | **Default Constructor**      | Initializes object with default values     | When object is created without arguments       | No parameters, either user-defined or compiler-generated |
 | **Parameterized Constructor**| Initializes object with given values       | When object is created with arguments          | Accepts parameters to customize initialization            |
 | **Copy Constructor**         | Initializes object as copy of another      | When an object is copied                       | Creates a new object by copying an existing one            |
-| **Move Constructor**         | Transfers resources from temporary object  | When object is initialized from an rvalue      | Moves ownership instead of copying for efficiency          |
 | **Destructor**               | Releases resources and cleans up           | When object goes out of scope or is deleted    | Automatically invoked when an object is destroyed          |
 
 ---
 
+## Summary of Programs
+
+### Program 1. Default Constructor defined inside a class
+
+1. **Start**
+2. Define a class named `student` with the following **private data members**:
+   - `rollno` (double)
+   - `name` (character array of size 50)
+   - `fee` (double)
+3. Declare a **public constructor** for the class `student` that performs the following:
+   - Display: `"Enter the RollNo.: "`
+   - Read and store user input in `rollno`
+   - Display: `"Enter the Name: "`
+   - Read and store user input in `name`
+   - Display: `"Enter the Fee: "`
+   - Read and store user input in `fee`
+4. In the `main()` function:
+   - Create an object `s` of class `student`
+   - Constructor is automatically called, prompting the user for input
+5. **End**
+
+
+### Program 2. Default Constructor Outside a class
+
+1. **Start**
+2. Define a class named `Date` with private data members:
+   - `date` (integer)
+   - `month` (integer)
+   - `year` (integer)
+3. Declare a public **constructor** that:
+   - Prompts the user to enter the day, month, and year.
+   - Reads the values and stores them in the respective data members.
+4. Define a public member function `display()` that:
+   - Displays the date in the format `DD/MM/YYYY`.
+5. In the `main()` function:
+   - Create an object `d` of class `Date`.
+   - Call `d.display()` to show the entered date.
+6. **End**
+
+
+### Program 3. Parameterized Constructor
+
+1. **Start**
+2. Define a class `construct` with private data members:
+   - `a` (integer)
+   - `b` (integer)
+3. Define a public parameterized constructor that:
+   - Accepts two integer parameters `m` and `n`
+   - Initializes `a` with `m` and `b` with `n`
+4. Define a public member function `putdata()` that:
+   - Prints the values of `a` and `b`
+5. In the `main()` function:
+   - Create an object `c` of class `construct`, passing `1000` and `25` as arguments
+   - Call `c.putdata()` to display the values of `a` and `b`
+6. **End**
+
+
+### Program 4. Copy Constructor Example - 1
+
+1. **Start**
+2. Define a class `student` with private data members:
+   - `age` (integer)
+   - `name` (string)
+3. Define a **parameterized constructor** that:
+   - Takes `string s` (name) and `int a` (age) as parameters
+   - Initializes the data members `name` and `age`
+4. Define a **copy constructor** that:
+   - Accepts a reference to another `student` object
+   - Copies the `name` and `age` from the existing object
+   - Prints messages indicating it was called
+5. Define a member function `display()` to:
+   - Print the student's name and age
+6. In `main()` function:
+   - Create a student object `s1` with name `"Maitraiyee"` and age `18`
+   - Create another student `s2` by copying `s1` (invokes copy constructor)
+   - Call `display()` on both `s1` and `s2` to show their data
+7. **End**
+
+
+### Program 5. Copy Constructor Example - 2
+
+1. **Start**
+2. Define a class `Car` with private data members:
+   - `Price` (int)
+   - `name` (string)
+   - `id` (int)
+3. Create a **parameterized constructor**:
+   - Takes parameters: name (`string`), price (`int`), and id (`int`)
+   - Initializes the data members
+4. Create a **copy constructor**:
+   - Accepts a reference to another `Car` object
+   - Copies values from the original object's members
+   - Outputs a message to indicate the copy constructor was invoked
+5. Define a member function `display()`:
+   - Prints car details: name, price, and id
+6. In `main()`:
+   - Create object `c1` using the parameterized constructor
+   - Create object `c2` by copying `c1` (copy constructor is called)
+   - Call `display()` on both objects
+7. **End**
+
+
+### Program 6. Destructors Example - 1
+
+1. **Start**
+2. Declare a **global variable** `count = 0` to track object creation and destruction.
+3. Define a class `destruct` with:
+   - A **constructor** that:
+     - Increments the global `count`
+     - Prints the number of objects created
+   - A **destructor** that:
+     - Decrements the global `count`
+     - Prints the number of objects destroyed
+4. In `main()`:
+   - Create four objects: `aa`, `bb`, `cc`, and `dd`
+   - The constructor will be called 4 times, increasing and displaying `count`
+5. When `main()` ends, destructors are called automatically in **reverse order** of creation:
+   - The count is decremented with each destructor call
+   - Destruction messages are printed accordingly
+6. **End**
+
+
+### Program 7. Destructors Example - 2
+
+1. **Start**
+2. Define a class `Date` with public data members:
+   - `d = 26` (day)
+   - `m = 8` (month)
+   - `y = 2023` (year)
+3. Define a **destructor** that:
+   - Prints `"Destructor Called !"` when an object is destroyed
+4. In `main()`:
+   - Create four `Date` objects: `d1`, `d2`, `d3`, and `d4` (all are local to `main()`)
+   - Create a `for` loop that runs 4 times
+     - Inside the loop, a new `Date` object `d1` is declared in each iteration
+     - These objects go out of scope **at the end of each iteration**, so their destructors are called immediately
+5. After the loop ends, the four initial objects (`d1`–`d4`) go out of scope when `main()` ends
+6. **End**
+---
 ## Conclusion
 
 Constructors and destructors form the backbone of robust and safe C++ programming by automating the critical processes of object initialization and cleanup. Proper use of constructors guarantees that objects start in a valid state, while well-defined destructors ensure that resources like memory, files, and connections are released correctly, preventing leaks and other runtime issues.
