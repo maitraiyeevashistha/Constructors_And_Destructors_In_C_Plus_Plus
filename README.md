@@ -1,5 +1,15 @@
 # Constructors and Destructors in C++
 
+## Name: Maitraiyee Vashistha
+## PRN: 24070123057
+## Division: ENTC-A3
+## Title: Constructors and Deconstructors in C + + 
+---
+
+## Aim :
+*To study and apply Constructors and Deconstructors in C++*
+
+-----
 ## Introduction
 
 In object-oriented programming (OOP), **constructors** and **destructors** are special member functions that manage the creation and destruction of objects. They are crucial in ensuring that objects are initialized properly when they are created, and resources are released appropriately when they are destroyed.
@@ -37,12 +47,7 @@ A **constructor** is a special function in a class that is automatically called 
    - A constructor that creates a **new object as a copy of an existing object** of the same class.
    - Used for making copies of objects, typically in the case of passing objects by value, returning objects from functions, or assigning objects to each other.
    - When a class involves resource management (e.g., dynamic memory), it’s important to define a custom copy constructor to avoid issues like double freeing memory or shallow copying.
-
-4. **Move Constructor**
-   - A constructor that **moves resources from a temporary object** (rvalue) instead of copying them.
-   - Helps to optimize the performance of programs, especially with resource-managing classes (e.g., containers, buffers) by transferring ownership of resources rather than duplicating them.
-   - This is useful for temporary objects created using `std::move()`.
-
+   
 ---
 
 ## What is a Destructor?
