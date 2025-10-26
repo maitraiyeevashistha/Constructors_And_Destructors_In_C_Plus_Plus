@@ -1,8 +1,5 @@
 # Constructors and Destructors in C++
 
-## Name: Maitraiyee Vashistha
-## PRN: 24070123057
-## Division: ENTC-A3
 ## Title: Constructors and Deconstructors in C + + 
 ---
 
